@@ -7,6 +7,7 @@ public class LinkedDeque<E> implements Deque<E> {
 		private E data;
 		private DNode<E> previous;
 		private DNode<E> next;
+	
 
 		public DNode(E data, DNode<E> previous, DNode<E> next) {
 			this.data = data;
@@ -26,7 +27,7 @@ public class LinkedDeque<E> implements Deque<E> {
 	private DNode<E> head;
 	private DNode<E> tail;
 
-// Creates both a dummy head and a dummy tail.
+	// Creates both a dummy head and a dummy tail.
 	public LinkedDeque() {
 		head = new DNode<>();
 		tail = new DNode<>();
@@ -43,42 +44,29 @@ public class LinkedDeque<E> implements Deque<E> {
 		tail.previous = head;
 	}
 
-	public int size() {
-		return size;
-	}
-	
-// Complete the following methods:
+	// Complete the following methods:
 
 	public void addFirst(E element) {
 
-		Node temp1;
-
-		if (head != null) {
+		DNode temp1 = new DNode(element);
+		
+		
+			temp1.next = head.next;
+			temp1.next.previous = temp1;
+			head.next = temp1;
+			temp1.previous = head;
 			
-			head.previous = temp1;
-		}
-		head = temp1;
-
-		if (tail == null) {
-			tail = temp1;
-			size++;
-		}
-
+		return;
 	}
 
 	public E removeFirst() {
 		
-		/*if ( size == 0 ) throw new NoSuchElementException();
-		Node temp1 = tail;
-		tail = tail.previous;
-		tail.next = null;
-		size--;*/
-		
-		Node current;
 
-		current.previous.next = current.next;
-		current.next.previous = current.previous;
-
+		 /* DNode current;
+		  
+		  current.previous.next = current.next; 
+		  current.next.previous = current.previous;
+		  */
 		return null;
 	}
 
@@ -88,31 +76,58 @@ public class LinkedDeque<E> implements Deque<E> {
 	}
 
 	public boolean removeFirstOccurrence(Object obj) {
-		
+
 		return false;
 	}
 
 	public void addLast(E element) {
-		 
-		Node temp1;
-		if (tail != null) {
-			tail.next = temp1;
-		}
-		tail = temp1;
-
-		if (head == null)
+		
+		DNode temp1 = new DNode( element );
+		
+		DNode temp2 = head;
+		
+		temp1.next = null;
+		
+		if (isEmpty())
+			throw new NoSuchElementException();
+			
+			
+		if ( head == null) {
+			temp1.previous = null;
 			head = temp1;
-			size++
+			return;
+		}
+		
+		while( temp2.next != null) {
+			temp2 = temp2.next;
+		}
+
+			temp2.next = temp1;
+			temp1.previous = temp2;
+			
+			return;
 	}
 
 	public E removeLast() {
+		
 
-		if ( size == 0 ) throws new NoSuchElementException();
-			Node temp1 = tail;
+		/*E element = tail.getLast();
+		
+		if (isEmpty())
+			throw new NoSuchElementException();
+		if (  == 0 ) throw new NoSuchElementException();
+			DNode temp1 = tail;
 			tail = tail.previous;
 			tail.next = null;
-			size --;
-		return null;
+			
+		return;
+		
+		DNode pointer = head;
+		
+		while ( pointer.next != null) {
+			pointer = pointer.next;
+		}*/
+			return null;
 	}
 
 	public E getLast() {
@@ -144,5 +159,7 @@ public class LinkedDeque<E> implements Deque<E> {
 		}
 		System.out.println();
 	}
+
+	
 
 }
