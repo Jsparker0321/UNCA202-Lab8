@@ -61,10 +61,10 @@ public class LinkedDeque<E> implements Deque<E> {
 	public E removeFirst() {
 		
 
-		  DNode current = null;
+		/*  DNode current = null;
 		  
 		  current.previous.next = current.next; 
-		  current.next.previous = current.previous;
+		  current.next.previous = current.previous;*/
 		 
 		return null;
 	}
@@ -72,7 +72,7 @@ public class LinkedDeque<E> implements Deque<E> {
 	public E getFirst() {
 		
 		
-		return null;
+		return head.next.data;
 	}
 
 	public boolean removeFirstOccurrence(Object obj) {
@@ -116,7 +116,7 @@ public class LinkedDeque<E> implements Deque<E> {
 
 	public E getLast() {
 
-		return null;
+		return tail.previous.data;
 	}
 
 	public boolean removeLastOccurrence(Object obj) {

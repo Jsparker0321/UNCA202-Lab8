@@ -13,7 +13,9 @@ public class Driver {
 		test.addLast(55);
 		test.printForward();
 		test.printBackward();
-		test.removeFirst();
+		System.out.println("The first element is: " + test.getFirst());
+		System.out.println("The last element is: " + test.getLast());
+		//test.removeFirst();
 		//test.removeLast();
 		//test.printBackward();
 
