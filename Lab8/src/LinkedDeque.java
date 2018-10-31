@@ -1,5 +1,3 @@
-import java.util.NoSuchElementException;
-
 public class LinkedDeque<E> implements Deque<E> {
 
 	private static class DNode<E> {
@@ -45,10 +43,11 @@ public class LinkedDeque<E> implements Deque<E> {
 	}
 
 	// Complete the following methods:
-
+	
+	//THIS METHOD WORKS!
 	public void addFirst(E element) {
 
-		DNode temp1 = new DNode(element);
+		DNode<E> temp1 = new DNode<>(element );
 		
 		
 			temp1.next = head.next;
@@ -62,16 +61,17 @@ public class LinkedDeque<E> implements Deque<E> {
 	public E removeFirst() {
 		
 
-		 /* DNode current;
+		  DNode current = null;
 		  
 		  current.previous.next = current.next; 
 		  current.next.previous = current.previous;
-		  */
+		 
 		return null;
 	}
 
 	public E getFirst() {
-
+		
+		
 		return null;
 	}
 
@@ -80,32 +80,16 @@ public class LinkedDeque<E> implements Deque<E> {
 		return false;
 	}
 
+	//THIS METHOD WORKS!
 	public void addLast(E element) {
+		DNode<E> temp1 = new DNode<>(element);
 		
-		DNode temp1 = new DNode( element );
+		temp1.previous = tail.previous;
+		temp1.previous.next = temp1;
+		tail.previous = temp1;
+		temp1.next = tail;
 		
-		DNode temp2 = head;
-		
-		temp1.next = null;
-		
-		if (isEmpty())
-			throw new NoSuchElementException();
-			
-			
-		if ( head == null) {
-			temp1.previous = null;
-			head = temp1;
-			return;
-		}
-		
-		while( temp2.next != null) {
-			temp2 = temp2.next;
-		}
-
-			temp2.next = temp1;
-			temp1.previous = temp2;
-			
-			return;
+		return;
 	}
 
 	public E removeLast() {

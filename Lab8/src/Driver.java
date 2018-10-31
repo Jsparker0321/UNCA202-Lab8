@@ -7,10 +7,13 @@ public class Driver {
 		
 	    test.addFirst(10);
 		test.addFirst(34);
-		//test.addLast(56);
-		//test.addLast(364);
 		test.printForward();
-		//test.removeFirst();
+		test.addLast(56);
+		test.addLast(364);
+		test.addLast(55);
+		test.printForward();
+		test.printBackward();
+		test.removeFirst();
 		//test.removeLast();
 		//test.printBackward();
 
