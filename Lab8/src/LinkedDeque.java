@@ -1,3 +1,4 @@
+
 public class LinkedDeque<E> implements Deque<E> {
 
 	private static class DNode<E> {
@@ -5,7 +6,6 @@ public class LinkedDeque<E> implements Deque<E> {
 		private E data;
 		private DNode<E> previous;
 		private DNode<E> next;
-	
 
 		public DNode(E data, DNode<E> previous, DNode<E> next) {
 			this.data = data;
@@ -43,86 +43,125 @@ public class LinkedDeque<E> implements Deque<E> {
 	}
 
 	// Complete the following methods:
-	
-	//THIS METHOD WORKS!
+
+	// THIS METHOD WORKS!
 	public void addFirst(E element) {
 
-		DNode<E> temp1 = new DNode<>(element );
-		
-		
-			temp1.next = head.next;
-			temp1.next.previous = temp1;
-			head.next = temp1;
-			temp1.previous = head;
-			
+		DNode<E> temp1 = new DNode<>(element);
+
+		temp1.next = head.next;
+		temp1.next.previous = temp1;
+		head.next = temp1;
+		temp1.previous = head;
+
 		return;
 	}
 
+	// THIS METHOD WORKS!
 	public E removeFirst() {
-		
 
-		/*  DNode current = null;
-		  
-		  current.previous.next = current.next; 
-		  current.next.previous = current.previous;*/
-		 
-		return null;
+		DNode<E> deletion = new DNode<>();
+
+		deletion = head.next;
+
+		if (head.next == null) {
+			tail = null;
+		} else {
+			head.next.previous = null;
+			head = head.next;
+		}
+
+		return head.data;
 	}
 
+	// THIS METHOD WORKS!
 	public E getFirst() {
-		
-		
+
 		return head.next.data;
 	}
 
+	// THIS METHOD WORKS!
 	public boolean removeFirstOccurrence(Object obj) {
 
+		DNode<E> current = head;
+		if (current.data.equals(obj)) {
+			head = current.next;
+		} else {
+			boolean found = false;
+			while (current != null && !found) {
+				if (current.next.previous == null) {
+					current.next.previous = current;
+				}
+				current = current.next;
+				if (current.data.equals(obj)) {
+					found = true;
+					if (current.next == null) {
+						current.previous.next = null;
+					} else {
+						current.previous.next = current.next;
+					}
+				}
+			}
+		}
+
 		return false;
+
 	}
 
-	//THIS METHOD WORKS!
+	// THIS METHOD WORKS!
 	public void addLast(E element) {
 		DNode<E> temp1 = new DNode<>(element);
-		
+
 		temp1.previous = tail.previous;
 		temp1.previous.next = temp1;
 		tail.previous = temp1;
 		temp1.next = tail;
-		
+
 		return;
 	}
 
+	// THIS METHOD WORKS!
 	public E removeLast() {
-		
 
-		/*E element = tail.getLast();
-		
-		if (isEmpty())
-			throw new NoSuchElementException();
-		if (  == 0 ) throw new NoSuchElementException();
-			DNode temp1 = tail;
+		DNode<E> deletion = new DNode<>();
+
+		deletion = tail.previous;
+
+		if (tail.previous == null) {
+			head = null;
+		} else {
+			tail.previous.next = null;
 			tail = tail.previous;
-			tail.next = null;
-			
-		return;
-		
-		DNode pointer = head;
-		
-		while ( pointer.next != null) {
-			pointer = pointer.next;
-		}*/
-			return null;
+		}
+
+		return tail.data;
+
 	}
 
+	// THIS METHOD WORKS!
 	public E getLast() {
 
 		return tail.previous.data;
 	}
 
+	// THIS METHOD WORKS!
 	public boolean removeLastOccurrence(Object obj) {
 
+		DNode<E> current = head;
+		DNode<E> prev = null;
+		DNode<E> temp = null;
+
+		while (current != null) {
+			if (current.next != null && current.next.data == obj) {
+				prev = current;
+				temp = current.next;
+			}
+			current = current.next;
+		}
+		prev.next = temp.next;
 		return false;
 	}
+
 
 	public void printForward() {
 		System.out.println("The deque printed forward:");
@@ -143,7 +182,5 @@ public class LinkedDeque<E> implements Deque<E> {
 		}
 		System.out.println();
 	}
-
-	
 
 }
