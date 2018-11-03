@@ -6,55 +6,69 @@ public class Driver {
 
 		LinkedDeque<String> test = new LinkedDeque<String>();
 
+		System.out.println("The Beginning List: ");
+		System.out.println("--------------------");
 		test.addFirst("Jessica");
+		test.addLast("Tony");
 		test.addFirst("Tyler");
-		test.addFirst("Michael");
-
+		test.addLast("Jacob");
 		test.printForward();
 
-		test.addLast("Brandy");
-		test.addLast("Baxter");
-		test.addLast("Susan");
-		
+		System.out.println("The listed printed backwards: ");
 		test.printBackward();
 	
-		
+		System.out.println("Getting elements: ");
+		System.out.println("------------------");
 		System.out.println("The first element is: " + test.getFirst());
 		System.out.println("The last element is: " + test.getLast());
 		
-		test.addFirst("Romeo");
-		test.addFirst("Rachel");
-		test.addLast("Juliet");
-		test.addLast("Derrick");
+		System.out.println();
 		
-		test.printForward();
-
-		System.out.println("The element removed was: " + test.removeFirst());
-		System.out.println("The element removed was: " + test.removeLast());
-		
+		System.out.println("Removing elements: ");
+		System.out.println("-------------------");
+		System.out.println("The first element removed was: " + test.removeFirst());
+		System.out.println("The last element removed was: " + test.removeLast());
+		System.out.println();
+		System.out.println("The remaining list: ");
 		test.printForward();
 		
-		test.addFirst("Jacob");
+		
+		System.out.println("A new list: ");
+		System.out.println("------------");
+		test.addFirst("Regina");
+		test.addFirst("Piper");
+		test.addFirst("Jessica");
 		test.addFirst("Brian");
 		test.addFirst("Jimmy");
-		test.addFirst("Kyle");
+		test.addFirst("Donald");
+		test.addFirst("Roman");
+		test.addFirst("Karl");
+		test.addFirst("Peter");
+		test.addFirst("Romeo");
 		test.addLast("Brian");
 		test.addLast("Isaiah");
 		test.addLast("Cameron");
+		test.addLast("Jessica");
+		test.addLast("Becky");
+		test.addLast("Roger");
+		test.addLast("Karl");
+		test.addLast("Amy");
 		test.addLast("Romeo");
-
+		test.addLast("Billy Bob Joe");
 		test.printForward();
-		//test.removeFirstOccurrence("Brian");
-		//test.removeFirstOccurrence("Romeo");
-		//System.out.println("Element found: " + found1);
-		//test.printForward();
-
-		test.removeLastOccurrence("Brian");
-		test.removeLastOccurrence("Romeo");
+		
+		System.out.println("Removing occurrences: ");
+		System.out.println("----------------------");
+		test.removeFirstOccurrence("Brian");
+		test.removeFirstOccurrence("Romeo");
+		test.removeLastOccurrence("Jessica");
+		test.removeLastOccurrence("Karl");
+		
+		
+		System.out.println("The remaining list: ");
 		test.printForward();
-		/*boolean found2 = test.removeLastOccurrence("Romeo");
-		System.out.println("Element found:" + found2);
-		test.printForward();*/
+
+	
 
 	}
 
