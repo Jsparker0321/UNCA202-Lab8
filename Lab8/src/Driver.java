@@ -16,14 +16,14 @@ public class Driver {
 
 		System.out.println("The listed printed backwards: ");
 		test.printBackward();
-	
+
 		System.out.println("Getting elements: ");
 		System.out.println("------------------");
 		System.out.println("The first element is: " + test.getFirst());
 		System.out.println("The last element is: " + test.getLast());
-		
+
 		System.out.println();
-		
+
 		System.out.println("Removing elements: ");
 		System.out.println("-------------------");
 		System.out.println("The first element removed was: " + test.removeFirst());
@@ -31,8 +31,7 @@ public class Driver {
 		System.out.println();
 		System.out.println("The remaining list: ");
 		test.printForward();
-		
-		
+
 		System.out.println("A new list: ");
 		System.out.println("------------");
 		test.addFirst("Regina");
@@ -56,19 +55,16 @@ public class Driver {
 		test.addLast("Romeo");
 		test.addLast("Billy Bob Joe");
 		test.printForward();
-		
+
 		System.out.println("Removing occurrences: ");
 		System.out.println("----------------------");
 		test.removeFirstOccurrence("Brian");
 		test.removeFirstOccurrence("Romeo");
 		test.removeLastOccurrence("Jessica");
 		test.removeLastOccurrence("Karl");
-		
-		
+
 		System.out.println("The remaining list: ");
 		test.printForward();
-
-	
 
 	}
 

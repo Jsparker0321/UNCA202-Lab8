@@ -1,3 +1,4 @@
+import java.util.NoSuchElementException;
 
 public class LinkedDeque<E> implements Deque<E> {
 
@@ -44,8 +45,10 @@ public class LinkedDeque<E> implements Deque<E> {
 
 	// Complete the following methods:
 
-	// THIS METHOD WORKS!
 	public void addFirst(E element) {
+
+		if (isEmpty())
+			throw new NoSuchElementException();
 
 		DNode<E> temp1 = new DNode<>(element);
 
@@ -57,8 +60,10 @@ public class LinkedDeque<E> implements Deque<E> {
 		return;
 	}
 
-	// THIS METHOD WORKS!
 	public E removeFirst() {
+
+		if (isEmpty())
+			throw new NoSuchElementException();
 
 		DNode<E> deletion = new DNode<>();
 
@@ -74,14 +79,15 @@ public class LinkedDeque<E> implements Deque<E> {
 		return head.data;
 	}
 
-	// THIS METHOD WORKS!
 	public E getFirst() {
 
 		return head.next.data;
 	}
 
-	// THIS METHOD WORKS!
 	public boolean removeFirstOccurrence(Object obj) {
+
+		if (isEmpty())
+			throw new NoSuchElementException();
 
 		DNode<E> current = head;
 		if (current.data.equals(obj)) {
@@ -108,8 +114,11 @@ public class LinkedDeque<E> implements Deque<E> {
 
 	}
 
-	// THIS METHOD WORKS!
 	public void addLast(E element) {
+
+		if (isEmpty())
+			throw new NoSuchElementException();
+
 		DNode<E> temp1 = new DNode<>(element);
 
 		temp1.previous = tail.previous;
@@ -120,8 +129,10 @@ public class LinkedDeque<E> implements Deque<E> {
 		return;
 	}
 
-	// THIS METHOD WORKS!
 	public E removeLast() {
+
+		if (isEmpty())
+			throw new NoSuchElementException();
 
 		DNode<E> deletion = new DNode<>();
 
@@ -138,13 +149,11 @@ public class LinkedDeque<E> implements Deque<E> {
 
 	}
 
-	// THIS METHOD WORKS!
 	public E getLast() {
 
 		return tail.previous.data;
 	}
 
-	// THIS METHOD WORKS!
 	public boolean removeLastOccurrence(Object obj) {
 
 		DNode<E> current = head;
@@ -161,7 +170,6 @@ public class LinkedDeque<E> implements Deque<E> {
 		prev.next = temp.next;
 		return false;
 	}
-
 
 	public void printForward() {
 		System.out.println("The deque printed forward:");
